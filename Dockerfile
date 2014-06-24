@@ -14,6 +14,8 @@ RUN apt-get install -y mysql-server
 #RUN sed -i -e "s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 ADD jcatalog_ddl.sql /opt/Catalog_DBscripts/
 ADD jcatalog_dml.sql /opt/Catalog_DBscripts/
+ADD start_mysql.sh /usr/bin/
+RUN chmod 755 /usr/bin/start_mysql.sh
 # Start MySQL Server
 RUN service mysql start && /usr/bin/mysqladmin -u root password root123 && /usr/bin/mysql -uroot -proot123 -e "create database catalog;" && /usr/bin/mysql -uroot -proot123 -e "delete from mysql.user where User!='root';" && /usr/bin/mysql -uroot -proot123 -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' identified by 'root123';" && /usr/bin/mysql -uroot -proot123 -e "FLUSH PRIVILEGES;" 
 
