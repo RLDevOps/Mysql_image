@@ -11,7 +11,7 @@ RUN apt-get install -y mysql-server
 
 # Edit the my.cnf file to allow connections from outside the
 # container
-#RUN sed -i -e "s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
+RUN sed -i -e "s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 ADD jcatalog_ddl.sql /opt/
 ADD jcatalog_dml.sql /opt/
 RUN chmod 755 /opt/jcatalog_ddl.sql && chmod 755 /opt/jcatalog_dml.sql
