@@ -22,4 +22,4 @@ EXPOSE 3306
 
 # Set Entry point
 #ENTRYPOINT ["/usr/bin/mysqld_safe"]
-CMD ["/usr/bin/mysqld_safe"]
+CMD ["/usr/bin/start_mysql.sh"]
