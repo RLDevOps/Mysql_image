@@ -22,4 +22,4 @@ EXPOSE 3306
 
 # Set Entry point
 ENTRYPOINT ["/usr/bin/mysqld_safe"]
-CMD ["/usr/bin/mysql" "-uroot" "-proot123" "catalog" "<" "/opt/Catalog_DBscripts/jacatlog_ddl.sql" "&&" "/usr/bin/mysql" "-uroot" "-proot123" "catalog" "<" "/opt/Catalog_DBscripts/jacatlog_dml.sql"]
+CMD ["/usr/bin/mysql", "-uroot", "-proot123", "catalog", "<" ,"/opt/Catalog_DBscripts/jacatlog_ddl.sql" ,"&&", "/usr/bin/mysql", "-uroot", "-proot123" ,"catalog", "<" ,"/opt/Catalog_DBscripts/jacatlog_dml.sql"]
