@@ -2,4 +2,4 @@
 service mysqld start
 /usr/bin/mysql -uroot -proot123 catalog < /opt/jacatlog_ddl.sql 
 /usr/bin/mysql -uroot -proot123 catalog < /opt/jacatlog_dml.sql
-/usr/bin/mysqld_safe
+tail -f /var/log/mysqld.log
