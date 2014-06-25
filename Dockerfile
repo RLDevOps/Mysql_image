@@ -18,7 +18,7 @@ RUN chmod 755 /opt/jcatalog_ddl.sql && chmod 755 /opt/jcatalog_dml.sql
 ADD start_mysql.sh /usr/bin/
 RUN chmod 755 /usr/bin/start_mysql.sh
 # Start MySQL Server
-RUN service mysql start && mysqladmin -u root password 'root123' && mysql -uroot -proot123 -e "create database catalog;" && mysql -uroot -proot123 -e "delete from mysql.user where User!='root';" && mysql -uroot -proot123 -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' identified by 'root123';" && mysql -uroot -proot123 -e "FLUSH PRIVILEGES;" 
+RUN service mysql start && mysqladmin -u root password 'root123' && mysql -uroot -proot123 -e "create database catalog;" && mysql -uroot -proot123 -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' identified by 'root123';" && mysql -uroot -proot123 -e "FLUSH PRIVILEGES;" 
 
 # Expose Ports
 EXPOSE 3306
